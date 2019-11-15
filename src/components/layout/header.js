@@ -40,7 +40,7 @@ const Header = ({ siteTitle }) => {
   const Logo = data.allImageSharp.nodes[0].original.src
 
   function listener() {
-    if (scrollY > 150) {
+    if (scrollY > 60) {
       setScrolled(true)
     } else {
       setScrolled(false)
@@ -57,15 +57,21 @@ const Header = ({ siteTitle }) => {
         <Link to="/">{siteTitle}</Link>
       </div>
       <div className={styles.menu}>
-        <Link to="/" className={styles.menuItem}>
-          Concerts
-        </Link>
-        <Link to="/venues" className={styles.menuItem}>
-          Venues
-        </Link>
-        <Link to="/festivals" className={styles.menuItem}>
-          Festivals
-        </Link>
+        <div className={styles.logoSide}>
+          <Link to="/">{siteTitle}</Link>
+        </div>
+        <div className={styles.links}>
+          <Link to="/" className={styles.menuItem}>
+            Concerts
+          </Link>
+          <Link to="/venues" className={styles.menuItem}>
+            Venues
+          </Link>
+          <Link to="/festivals" className={styles.menuItem}>
+            Festivals
+          </Link>
+        </div>
+        <div className={styles.logoSide}></div>
       </div>
     </header>
   )

@@ -1,16 +1,8 @@
 require('dotenv').config()
 
-const postType = {
-  id: 1,
-  name: 'String',
-  published: true,
-  object: { a: 1, b: '2', c: false },
-  array: [{ a: 1, b: '2', c: false }],
-}
-
 module.exports = {
   siteMetadata: {
-    title: `LIVE KLASSISK`,
+    title: `LK`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
   },

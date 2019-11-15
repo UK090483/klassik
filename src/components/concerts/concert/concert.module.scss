@@ -19,6 +19,10 @@ $opacity: 0.5;
   align-items: flex-end;
   border-radius: 5px;
   z-index: 2;
+
+  h1 {
+    font-size: 1.4rem;
+  }
 }
 
 .noimage {
@@ -78,7 +82,12 @@ $opacity: 0.5;
     background-color: rgba(0, 0, 0, 0);
   }
   .info {
-    background-color: rgba(38, 35, 223, 0.5);
+    background: rgba(255, 255, 255, 0.877);
+    color: #000;
+    mix-blend-mode: screen;
+    h1 {
+      color: rgba(0, 0, 0, 0.521);
+    }
   }
 
   &.noimage {

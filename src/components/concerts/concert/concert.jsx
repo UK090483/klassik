@@ -30,7 +30,7 @@ export default function Concert({ concert }) {
           }}
         ></div>
       )}
-      <a className={style.link} href={link_url} target="_blank">
+      <a className={style.link} href={link_url} target="_blank" rel="noopener">
         <div className={style.info}>
           <div className={style.date}>
             <ConcertDate date={date}></ConcertDate>

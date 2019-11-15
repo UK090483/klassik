@@ -35,6 +35,7 @@ export default function Concerts() {
     let anzahl = page * 2
     let counter = 0
     let res = concerts.map(concert => {
+      console.log(anzahl)
       if (counter < anzahl) {
         counter++
         if (concert.node.title) {
@@ -57,7 +58,7 @@ export default function Concerts() {
         <InfiniteScroll
           pageStart={1}
           loadMore={loadFunc}
-          hasMore={true || false}
+          hasMore={true}
           loader={
             <div className="loader" key={0}>
               Loading ...
