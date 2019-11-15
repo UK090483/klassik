@@ -24,8 +24,10 @@ export default function Concerts() {
       }
     }
   `)
+  const INITALCONCERTS = 2
+  let concerts = data.allInternalConcerts.edges.slice(INITALCONCERTS)
+  let initialConcerts = data.allInternalConcerts.edges.slice(0, INITALCONCERTS)
 
-  let concerts = data.allInternalConcerts.edges
   const [searchResult, setSearchResult] = useState([])
   const [search, setSearch] = useState(false)
   const [items, setItems] = useState([])
@@ -36,7 +38,7 @@ export default function Concerts() {
   }, [])
 
   function loadFunc(page) {
-    let anzahl = page * 2
+    let anzahl = page * INITALCONCERTS
     doesHaveMore(anzahl)
     let counter = 0
     let res = []
@@ -49,6 +51,12 @@ export default function Concerts() {
       }
     })
     setItems(res)
+  }
+
+  function initialPrint() {
+    return initialConcerts.map(item => {
+      return <Concert key={item.node.id} concert={item}></Concert>
+    })
   }
 
   function doesHaveMore(anzahl) {
@@ -70,19 +78,22 @@ export default function Concerts() {
       })
     } else {
       return (
-        <InfiniteScroll
-          initialLoad={true}
-          pageStart={1}
-          loadMore={loadFunc}
-          hasMore={hasMore}
-          loader={
-            <div className="loader" key={0}>
-              Loading ...
-            </div>
-          }
-        >
-          {renderItems()}
-        </InfiniteScroll>
+        <div>
+          {initialPrint()}
+          <InfiniteScroll
+            initialLoad={true}
+            pageStart={1}
+            loadMore={loadFunc}
+            hasMore={hasMore}
+            loader={
+              <div className="loader" key={0}>
+                Loading ...
+              </div>
+            }
+          >
+            {renderItems()}
+          </InfiniteScroll>
+        </div>
       )
     }
   }
