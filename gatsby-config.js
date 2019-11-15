@@ -1,11 +1,22 @@
+require('dotenv').config()
+
+const postType = {
+  id: 1,
+  name: 'String',
+  published: true,
+  object: { a: 1, b: '2', c: false },
+  array: [{ a: 1, b: '2', c: false }],
+}
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `LIVE KLASSISK`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -27,6 +38,48 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: require.resolve('./plugins/gatsby-plugin-firebase'),
+      options: {
+        features: {
+          auth: true,
+          database: true,
+          firestore: true,
+          storage: false,
+          messaging: false,
+          functions: false,
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-source-apiserver',
+      options: {
+        url: 'https://gatest-83e0.restdb.io/rest/test',
+        method: 'get',
+        headers: {
+          'Content-Type': 'application/json',
+          'cache-control': 'no-cache',
+          'x-apikey': '6a1eff66b41b20e3b2a91376beea57adabe68',
+        },
+        typePrefix: 'internal__',
+        name: `concerts`,
+        // params: {
+        //   results: 10,
+        // },
+        verboseOutput: false,
+        entitiesArray: [
+          {
+            url: `https://gatest-83e0.restdb.io/rest/test`,
+            method: 'get',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            name: `blaaaa`,
+          },
+        ],
+      },
+    },
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

@@ -1,0 +1,46 @@
+@import "../../styles/variables.scss";
+.header {
+  position: fixed;
+  top: 0;
+  background-color: $color1;
+  width: 100vw;
+  margin: 0 auto;
+  z-index: 1000;
+  padding: 0 10px;
+  font-family: Helvetica, sans-serif;
+  font-weight: 700;
+  height: 150px;
+
+  transition: height 0.5s;
+
+  a {
+    text-decoration: none;
+    color: $fc2;
+    transition: color 0.2s;
+  }
+  a:hover {
+    color: grey;
+  }
+}
+.scrolled {
+  height: 100px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70%;
+  font-size: 50px;
+}
+.menu {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30%;
+}
+.menu-item {
+  width: 100px;
+  text-align: center;
+}

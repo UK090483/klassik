@@ -1,0 +1,17 @@
+@import "./variables";
+@import "./reset.scss";
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $fc1;
+  font-family: Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
