@@ -68,15 +68,18 @@ export default function Concerts() {
           {items}
         </InfiniteScroll>
       )
-      // return concerts.map(concert => {
-      //   if (counter < 10) {
-      //     counter++
-      //     if (concert.node.title) {
-      //       return <Concert key={concert.node.id} concert={concert}></Concert>
-      //     }
-      //   }
-      // })
     }
+  }
+
+  function getC() {
+    return concerts.map(concert => {
+      if (counter < 10) {
+        counter++
+        if (concert.node.title) {
+          return <Concert key={concert.node.id} concert={concert}></Concert>
+        }
+      }
+    })
   }
 
   return (
@@ -88,7 +91,8 @@ export default function Concerts() {
         search={search}
         setSearch={setSearch}
       ></Search> */}
-      {concerts.length > 0 ? renderConcerts() : <h1>Loading...</h1>}
+      {getC()}
+      {/* {concerts.length > 0 ? renderConcerts() : <h1>Loading...</h1>} */}
     </div>
   )
 }
