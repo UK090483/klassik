@@ -45,8 +45,8 @@
 }
 
 .logoSide {
-  width: 140px;
-  font-size: 3rem;
+  width: 130px;
+  font-size: 2.6rem;
   font-weight: 900;
   letter-spacing: -5px;
   opacity: 0;
@@ -60,7 +60,7 @@
 }
 .menu {
   width: 100vw;
-  height: 100px;
+  height: 110px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -79,7 +79,7 @@
 }
 
 .scrolled {
-  height: 100px;
+  height: 110px;
   .logo {
     opacity: 0;
     height: 0px;

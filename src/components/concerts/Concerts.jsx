@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import style from './concerts.module.scss'
 import Concert from './concert/concert'
@@ -26,23 +26,39 @@ export default function Concerts() {
   `)
 
   let concerts = data.allInternalConcerts.edges
-
   const [searchResult, setSearchResult] = useState([])
-  const [search, setSearch] = useState('')
-  const [items, setItems] = useState('')
+  const [search, setSearch] = useState(false)
+  const [items, setItems] = useState([])
+  const [hasMore, setHasMore] = useState(true)
+
+  useEffect(() => {
+    setItems[(concerts[0], concerts[1])]
+  }, [])
 
   function loadFunc(page) {
     let anzahl = page * 2
+    doesHaveMore(anzahl)
     let counter = 0
-    let res = concerts.map(concert => {
+    let res = []
+    concerts.forEach(concert => {
       if (counter < anzahl) {
         counter++
         if (concert.node.title) {
-          return <Concert key={concert.node.id} concert={concert}></Concert>
+          res.push(concert)
         }
       }
     })
     setItems(res)
+  }
+
+  function doesHaveMore(anzahl) {
+    setHasMore(concerts.length > anzahl)
+  }
+
+  function renderItems() {
+    return items.map(item => {
+      return <Concert key={item.node.id} concert={item}></Concert>
+    })
   }
 
   function renderConcerts() {
@@ -56,16 +72,16 @@ export default function Concerts() {
       return (
         <InfiniteScroll
           initialLoad={true}
-          pageStart={0}
+          pageStart={1}
           loadMore={loadFunc}
-          hasMore={true}
+          hasMore={hasMore}
           loader={
             <div className="loader" key={0}>
               Loading ...
             </div>
           }
         >
-          {items}
+          {renderItems()}
         </InfiniteScroll>
       )
     }
