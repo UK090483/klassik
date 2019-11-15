@@ -2,8 +2,7 @@ import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import Auth from '../auth'
-import AddData from '../../Data/DataContext'
+
 import styles from './header.module.scss'
 import '../../styles/global.scss'
 
@@ -68,9 +67,6 @@ const Header = ({ siteTitle }) => {
           Festivals
         </Link>
       </div>
-      {/* <AddData>
-        <Auth></Auth>
-      </AddData> */}
     </header>
   )
 }

@@ -39,19 +39,6 @@ module.exports = {
       },
     },
     {
-      resolve: require.resolve('./plugins/gatsby-plugin-firebase'),
-      options: {
-        features: {
-          auth: true,
-          database: true,
-          firestore: true,
-          storage: false,
-          messaging: false,
-          functions: false,
-        },
-      },
-    },
-    {
       resolve: 'gatsby-source-apiserver',
       options: {
         url: 'https://gatest-83e0.restdb.io/rest/test',

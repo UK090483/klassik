@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { UserContext } from '../../Data/DataContext'
+
 import style from './concerts.module.scss'
 import Concert from './concert/concert'
 import { graphql, useStaticQuery } from 'gatsby'
