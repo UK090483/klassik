@@ -73,11 +73,8 @@ export default function Concerts() {
 
   function getC() {
     return concerts.map(concert => {
-      if (counter < 10) {
-        counter++
-        if (concert.node.title) {
-          return <Concert key={concert.node.id} concert={concert}></Concert>
-        }
+      if (concert.node.title) {
+        return <Concert key={concert.node.id} concert={concert}></Concert>
       }
     })
   }
