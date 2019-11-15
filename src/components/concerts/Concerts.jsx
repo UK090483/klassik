@@ -55,6 +55,7 @@ export default function Concerts() {
     } else {
       return (
         <InfiniteScroll
+          initialLoad={true}
           pageStart={0}
           loadMore={loadFunc}
           hasMore={true}
@@ -68,14 +69,6 @@ export default function Concerts() {
         </InfiniteScroll>
       )
     }
-  }
-
-  function getC() {
-    return concerts.map(concert => {
-      if (concert.node.title) {
-        return <Concert key={concert.node.id} concert={concert}></Concert>
-      }
-    })
   }
 
   return (
