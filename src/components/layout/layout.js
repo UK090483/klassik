@@ -16,7 +16,6 @@ import { style } from '@material-ui/system'
 import Background from './background'
 import { InterfaceContextWrap } from '../../contexts/InterfaceContext'
 import SEO from '../seo'
-import ColorCode from './ColorCode'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`

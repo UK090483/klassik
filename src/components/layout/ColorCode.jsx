@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './Colorcode.module.scss'
+import styles from './colorcode.module.scss'
 
 export default function ColorCode() {
   return (
