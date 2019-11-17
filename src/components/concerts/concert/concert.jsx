@@ -20,7 +20,7 @@ export default function Concert({ concert }) {
 
   const image =
     thumbnail_url && thumbnail_url.includes('musikhusetaarhus.dk')
-      ? thumbnail_url + '?mode=crop&width=600&height=400'
+      ? thumbnail_url + '?mode=resize&width=600'
       : thumbnail_url
 
   function getStyleWithImage() {
