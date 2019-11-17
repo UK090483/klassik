@@ -16,6 +16,11 @@ export default function ConcertMob({ concert }) {
       ? `${style.wrap} ${style.mouseOver} ${style.noimage}`
       : `${style.wrap}  ${style.noimage}`
   }
+
+  const image =
+    thumbnail_url && thumbnail_url.includes('musikhusetaarhus.dk')
+      ? thumbnail_url + '?mode=crop&width=600&height=400'
+      : thumbnail_url
   return (
     <a className={style.link} href={link_url} target="_blank" rel="noopener">
       <div
@@ -27,7 +32,7 @@ export default function ConcertMob({ concert }) {
           <div
             className={style.image}
             style={{
-              backgroundImage: `url(${thumbnail_url})`,
+              backgroundImage: `url(${image})`,
             }}
           ></div>
         )}

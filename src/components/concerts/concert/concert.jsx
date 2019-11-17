@@ -22,7 +22,6 @@ export default function Concert({ concert }) {
     thumbnail_url && thumbnail_url.includes('musikhusetaarhus.dk')
       ? thumbnail_url + '?mode=crop&width=600&height=400'
       : thumbnail_url
-  console.log(image)
 
   function getStyleWithImage() {
     return mouseOver ? `${style.wrap} ${style.mouseOver}` : style.wrap
