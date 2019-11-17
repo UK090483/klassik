@@ -1,7 +1,7 @@
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React, { useContext } from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+
 import InterfaceContext from '../../contexts/InterfaceContext'
 
 import './menu.css'
