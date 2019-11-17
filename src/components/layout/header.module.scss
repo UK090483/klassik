@@ -1,93 +1,106 @@
-@import '../../styles/variables.scss';
-.header {
+@import "../../styles/variables.scss";
+
+header {
+  font-family: Helvetica, sans-serif;
+  // border: red solid 1px;
+  width: 100%;
+  max-width: 100vw;
+  background-color: $white;
   position: fixed;
   top: 0;
-  width: 100vw;
   z-index: 1000;
-
-  font-family: Helvetica, sans-serif;
-  font-weight: 700;
-  height: 250px;
-  background: #fff;
-  color: #000;
-  mix-blend-mode: screen;
-  transition: height 0.5s;
 
   a {
     text-decoration: none;
-    transition: color 0.2s;
-    color: rgb(0, 0, 0);
+    transition: color 0.4s, border-color 0.4s;
+    color: $black;
+    border-color: $black;
   }
   a:hover {
-    color: grey;
+    color: $gold;
+    border-color: $gold;
   }
 }
 
 .logo {
-  width: 130px;
+  padding: 40px 0 20px 0;
+  // border: green solid 1px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 70%;
+  max-height: 300px;
   font-size: 4rem;
   font-weight: 900;
   letter-spacing: -5px;
   opacity: 1;
-  transition: opacity 0.1s, height 0.3s;
-
-  margin: 0 auto;
-
+  transition: max-height 0.4s, padding 0.4s, opacity 0.2s;
+  overflow: hidden;
   a {
-    border: black 10px solid;
-    padding: 10px 30px;
+    border: $black solid 13px;
+    padding: 10px 50px;
+  }
+}
+.scrolled {
+  .logo {
+    opacity: 0;
+    max-height: 0px;
+    padding: 0;
+  }
+}
+
+.menu {
+  //  border: blue solid 1px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  transition: height 1s;
+}
+.scrolled {
+  .menu {
+    height: 60px;
   }
 }
 
 .logoSide {
-  width: 130px;
-  font-size: 2.6rem;
+  // border: red solid 1px;
+  width: 0%;
+  height: 100%;
+  font-size: 1.3rem;
   font-weight: 900;
-  letter-spacing: -5px;
+  letter-spacing: -2px;
+  align-items: center;
+  justify-content: flex-start;
   opacity: 0;
-  transition: opacity 0.3s, margin-left 0.5s;
-  margin-left: -200px;
+  display: flex;
 
   a {
-    border: black 10px solid;
-    padding: 1px 30px;
+    border: $black solid 6px;
+    padding: 6px 25px;
+    transform: translateX(-200px);
+    transition: transform 1s, color 0.4s, border-color 0.4s;
+    margin-left: 10px;
   }
-}
-.menu {
-  width: 100%;
-  height: 110px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 auto;
-  padding: 0 10px;
-}
-.menu-item {
-  text-align: center;
-  font-size: 1.3rem;
-}
-
-.links {
-  width: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 360px;
-  padding: 0 10px;
 }
 
 .scrolled {
-  height: 110px;
-  .logo {
-    opacity: 0;
-    height: 0px;
-  }
   .logoSide {
+    width: 100%;
     opacity: 1;
-    margin-left: 0px;
+
+    a {
+      transform: translateX(0px);
+    }
   }
+}
+.links {
+  height: 100%;
+  // border: rgb(195, 0, 255) solid 1px;
+  min-width: 360px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

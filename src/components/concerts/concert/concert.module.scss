@@ -1,4 +1,4 @@
-@import '../../../styles/variables.scss';
+@import "../../../styles/variables.scss";
 
 $opacity: 0.5;
 
@@ -84,9 +84,9 @@ $opacity: 0.5;
   .info {
     background: rgba(255, 255, 255, 0.877);
     color: #000;
-    mix-blend-mode: screen;
+
     h1 {
-      color: rgba(0, 0, 0, 0.521);
+      color: $gold;
     }
   }
 

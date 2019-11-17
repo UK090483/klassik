@@ -19,7 +19,7 @@ export default function ConcertMob({ concert }) {
 
   const image =
     thumbnail_url && thumbnail_url.includes('musikhusetaarhus.dk')
-      ? thumbnail_url + '?mode=resize&width=600'
+      ? thumbnail_url + '?mode=resize&width=20'
       : thumbnail_url
   return (
     <a className={style.link} href={link_url} target="_blank" rel="noopener">

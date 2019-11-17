@@ -15,6 +15,8 @@ import styles from './layout.module.scss'
 import { style } from '@material-ui/system'
 import Background from './background'
 import { InterfaceContextWrap } from '../../contexts/InterfaceContext'
+import SEO from '../seo'
+import ColorCode from './ColorCode'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -29,6 +31,7 @@ const Layout = ({ children }) => {
 
   return (
     <InterfaceContextWrap>
+      <SEO></SEO>
       <div className={'page-wrap'}>
         <Background>
           <Header siteTitle={data.site.siteMetadata.title} />

@@ -1,0 +1,25 @@
+@import "../../styles/variables.scss";
+
+.wrap {
+  width: 100%;
+  height: 10px;
+  display: flex;
+  z-index: 10;
+}
+
+.black {
+  width: 100%;
+  background-color: $black;
+}
+.white {
+  width: 100%;
+  background-color: $white;
+}
+.gold {
+  width: 100%;
+  background-color: $gold;
+}
+.lilla {
+  width: 100%;
+  background-color: $lilla;
+}

@@ -1,4 +1,4 @@
-@import '../../../styles/variables.scss';
+@import "../../../styles/variables.scss";
 
 $opacity: 0.5;
 
@@ -9,7 +9,8 @@ $opacity: 0.5;
   }
 
   width: 100%;
-  height: 250px;
+  min-height: 250px;
+  height: 50vw;
   position: relative;
   display: flex;
   margin-left: 0px;

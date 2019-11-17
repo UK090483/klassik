@@ -8,6 +8,7 @@ import './menu.css'
 
 import styles from './header.module.scss'
 import '../../styles/global.scss'
+import ColorCode from './ColorCode'
 
 const Header = ({ siteTitle }) => {
   const { scrolled, isMobile } = useContext(InterfaceContext)
@@ -18,6 +19,7 @@ const Header = ({ siteTitle }) => {
 
   return (
     <header className={getStyles()}>
+      {/* <ColorCode></ColorCode> */}
       <div className={styles.logo}>
         <Link to="/">{siteTitle}</Link>
       </div>
