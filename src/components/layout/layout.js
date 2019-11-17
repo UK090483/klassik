@@ -14,6 +14,7 @@ import Header from './header'
 import styles from './layout.module.scss'
 import { style } from '@material-ui/system'
 import Background from './background'
+import { InterfaceContextWrap } from '../../contexts/InterfaceContext'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -27,19 +28,23 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <Background>
-      <Header siteTitle={data.site.siteMetadata.title} />
+    <InterfaceContextWrap>
+      <div className={'page-wrap'}>
+        <Background>
+          <Header siteTitle={data.site.siteMetadata.title} />
 
-      <div className={styles.container}>
-        <main>{children}</main>
+          <div className={styles.container}>
+            <main>{children}</main>
 
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+            <footer>
+              © {new Date().getFullYear()}, Built with
+              {` `}
+              <a href="https://www.gatsbyjs.org">Gatsby</a>
+            </footer>
+          </div>
+        </Background>
       </div>
-    </Background>
+    </InterfaceContextWrap>
   )
 }
 

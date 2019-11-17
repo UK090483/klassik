@@ -1,12 +1,28 @@
 import React, { useState } from 'react'
 import style from './concert.module.scss'
 import ConcertDate from './ConcertDate/ConcertDate'
+
 import Search from '../search/search'
 import { func } from 'prop-types'
 
 export default function Concert({ concert }) {
-  const { subTitle, title, thumbnail_url, venue, date, link_url } = concert.node
+  const {
+    subTitle,
+    title,
+    thumbnail_url,
+    venue,
+    date,
+    link_url,
+    featuredImg,
+  } = concert.node
+
   const [mouseOver, setMouseOver] = useState(false)
+
+  const image =
+    thumbnail_url && thumbnail_url.includes('musikhusetaarhus.dk')
+      ? thumbnail_url + '?mode=crop&width=600&height=400'
+      : thumbnail_url
+  console.log(image)
 
   function getStyleWithImage() {
     return mouseOver ? `${style.wrap} ${style.mouseOver}` : style.wrap
@@ -16,6 +32,7 @@ export default function Concert({ concert }) {
       ? `${style.wrap} ${style.mouseOver} ${style.noimage}`
       : `${style.wrap}  ${style.noimage}`
   }
+
   return (
     <div
       className={thumbnail_url ? getStyleWithImage() : getStyleWithoutImage()}
@@ -23,12 +40,12 @@ export default function Concert({ concert }) {
       onMouseLeave={() => setMouseOver(false)}
     >
       {thumbnail_url && (
-        <div
+        <img
           className={style.image}
           style={{
-            backgroundImage: `url(${thumbnail_url})`,
+            backgroundImage: `url(${image})`,
           }}
-        ></div>
+        ></img>
       )}
       <a className={style.link} href={link_url} target="_blank" rel="noopener">
         <div className={style.info}>

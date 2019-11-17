@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 
 import style from './concerts.module.scss'
 import Concert from './concert/concert'
+import ConcertMob from './concert/concertMob'
 import { graphql, useStaticQuery } from 'gatsby'
 import Search from './search/search'
 import InfiniteScroll from 'react-infinite-scroller'
+import InterfaceContext from '../../contexts/InterfaceContext'
 
 export default function Concerts() {
   const data = useStaticQuery(graphql`
@@ -26,12 +28,14 @@ export default function Concerts() {
   `)
   const INITALCONCERTS = 2
   let concerts = data.allInternalConcerts.edges.slice(INITALCONCERTS)
-  let initialConcerts = data.allInternalConcerts.edges.slice(0, INITALCONCERTS)
+  let intialConcerts = data.allInternalConcerts.edges.slice(0, INITALCONCERTS)
 
   const [searchResult, setSearchResult] = useState([])
   const [search, setSearch] = useState(false)
   const [items, setItems] = useState([])
   const [hasMore, setHasMore] = useState(true)
+
+  const { scrolled, isMobile } = useContext(InterfaceContext)
 
   useEffect(() => {
     setItems[(concerts[0], concerts[1])]
@@ -54,8 +58,12 @@ export default function Concerts() {
   }
 
   function initialPrint() {
-    return initialConcerts.map(item => {
-      return <Concert key={item.node.id} concert={item}></Concert>
+    return intialConcerts.map(item => {
+      return isMobile ? (
+        <ConcertMob key={item.node.id} concert={item}></ConcertMob>
+      ) : (
+        <Concert key={item.node.id} concert={item}></Concert>
+      )
     })
   }
 
@@ -65,7 +73,11 @@ export default function Concerts() {
 
   function renderItems() {
     return items.map(item => {
-      return <Concert key={item.node.id} concert={item}></Concert>
+      return isMobile ? (
+        <ConcertMob key={item.node.id} concert={item}></ConcertMob>
+      ) : (
+        <Concert key={item.node.id} concert={item}></Concert>
+      )
     })
   }
 
