@@ -12,7 +12,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import Header from './header'
 
 import styles from './layout.module.scss'
-import { style } from '@material-ui/system'
+
 import Background from './background'
 import { InterfaceContextWrap } from '../../contexts/InterfaceContext'
 import SEO from '../seo'

@@ -11,30 +11,24 @@ export default function ConcertContainer({
   const { thumbnail_url, link_url } = concert.node
   const { scrolled, isMobile } = useContext(InterfaceContext)
 
-  function getStyleWithImage() {
-    return mouseOver ? `${styles.wrap} ${styles.mouseOver}` : styles.wrap
-  }
-  function getStyleWithoutImage() {
-    return mouseOver
-      ? `${styles.wrap} ${styles.mouseOver} ${styles.noimage}`
+  function getStyle() {
+    return thumbnail_url
+      ? `${styles.wrap} `
       : `${styles.wrap}  ${styles.noimage}`
   }
-  function getStyleMobileNoImage() {
-    return thumbnail_url
-      ? `${styles.wrap} ${styles.mobile}`
-      : `${styles.wrap}  ${styles.mobile}  ${styles.noimage}`
-  }
 
-  return isMobile ? (
-    <a href={link_url} target="_blank" rel="noopener">
-      <div className={getStyleMobileNoImage()}>{children}</div>
-    </a>
-  ) : (
+  return (
     <div
-      className={thumbnail_url ? getStyleWithImage() : getStyleWithoutImage()}
+      className={getStyle()}
       onMouseEnter={() => setMouseOver(true)}
       onMouseLeave={() => setMouseOver(false)}
     >
+      <a
+        className={styles.link}
+        href={link_url}
+        target="_blank"
+        rel="noopener"
+      ></a>
       {children}
     </div>
   )

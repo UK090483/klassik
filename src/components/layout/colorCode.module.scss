@@ -2,24 +2,82 @@
 
 .wrap {
   width: 100%;
-  height: 10px;
   display: flex;
+  flex-wrap: wrap;
   z-index: 10;
 }
 
 .black {
-  width: 100%;
+  height: 50px;
+  width: 25%;
   background-color: $black;
 }
 .white {
-  width: 100%;
+  height: 50px;
+  width: 25%;
   background-color: $white;
 }
 .gold {
-  width: 100%;
+  height: 50px;
+  width: 25%;
   background-color: $gold;
 }
 .lilla {
-  width: 100%;
+  height: 50px;
+  width: 25%;
   background-color: $lilla;
+}
+
+.media {
+  height: 20px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include for-size("phone-only") {
+    &::after {
+      content: "for-size : phone-only";
+    }
+  }
+  @include for-size("tablet-portrait-up") {
+    &::after {
+      content: "for-size : tablet-portrait-up";
+    }
+  }
+  @include for-size("tablet-landscape-up") {
+    &::after {
+      content: "for-size : tablet-landscape-up";
+    }
+  }
+  @include for-size("desktop-up") {
+    &::after {
+      content: "for-size : desktop-up";
+    }
+  }
+  @include for-size("big-desktop-up") {
+    &::after {
+      content: "for-size : big-desktop-up";
+    }
+  }
+}
+
+.device {
+  height: 20px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include device("phone") {
+    &::before {
+      content: "device : phone";
+    }
+  }
+
+  @include device("pc") {
+    &::before {
+      content: "device : pc";
+    }
+  }
 }

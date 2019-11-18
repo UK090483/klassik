@@ -63,6 +63,7 @@ export default function Concerts() {
   }
 
   function doesHaveMore(anzahl) {
+    console.log('bla ' + anzahl)
     setHasMore(concerts.length > anzahl)
   }
 
