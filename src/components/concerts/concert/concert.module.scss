@@ -73,7 +73,6 @@ $opacity: 0.5;
 
 .mouseOver {
   width: calc(100% + 60px);
-
   margin-left: -30px;
   height: 500px;
 
@@ -83,17 +82,17 @@ $opacity: 0.5;
   }
   .info {
     background: rgba(255, 255, 255, 0.877);
-    color: #000;
+    color: #0d0d0d;
 
     h1 {
-      color: $gold;
+      color: $black;
     }
   }
 
   &.noimage {
     height: 100px;
     .info {
-      color: black;
+      color: $black;
     }
   }
 }
@@ -101,11 +100,11 @@ $opacity: 0.5;
 .noimage {
   .info {
     h1 {
-      color: black;
+      color: $black;
     }
 
     .title {
-      color: black;
+      color: $black;
     }
   }
 }

@@ -1,0 +1,19 @@
+.wrap {
+  max-height: 100px;
+  margin-left: 20px;
+  h1 {
+    width: fit-content;
+    margin: 0 0 0 auto;
+    font-size: 1.4rem;
+  }
+}
+
+.mobile {
+  max-height: 70px;
+
+  h1 {
+    width: fit-content;
+    margin: 0 0 0 auto;
+    font-size: 1.2rem;
+  }
+}

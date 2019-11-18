@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
 import style from './concert.module.scss'
-import ConcertDate from './ConcertDate/ConcertDate'
+import ConcertDate from './ConcertInfo/ConcertDate/ConcertDate'
+import ConcertContainer from './ConcertContainer/ConcertContainer'
+import ConcertImage from './ConcertImage/ConcertImage'
+import ConcertInfo from './ConcertInfo/ConcertInfo'
 
 import Search from '../search/search'
 import { func } from 'prop-types'
+import Concerts from '../Concerts'
 
 export default function Concert({ concert }) {
   const {
@@ -23,39 +27,41 @@ export default function Concert({ concert }) {
       ? thumbnail_url + '?mode=resize&width=600'
       : thumbnail_url
 
-  function getStyleWithImage() {
-    return mouseOver ? `${style.wrap} ${style.mouseOver}` : style.wrap
-  }
-  function getStyleWithoutImage() {
-    return mouseOver
-      ? `${style.wrap} ${style.mouseOver} ${style.noimage}`
-      : `${style.wrap}  ${style.noimage}`
-  }
-
   return (
-    <div
-      className={thumbnail_url ? getStyleWithImage() : getStyleWithoutImage()}
-      onMouseEnter={() => setMouseOver(true)}
-      onMouseLeave={() => setMouseOver(false)}
+    <ConcertContainer
+      concert={concert}
+      setMouseOver={setMouseOver}
+      mouseOver={mouseOver}
     >
-      {thumbnail_url && (
-        <img
-          className={style.image}
-          style={{
-            backgroundImage: `url(${image})`,
-          }}
-        ></img>
-      )}
-      <a className={style.link} href={link_url} target="_blank" rel="noopener">
-        <div className={style.info}>
-          <div className={style.date}>
-            <ConcertDate date={date}></ConcertDate>
-          </div>
-          <div className={style.title}>
-            <h1>{title}</h1>
-          </div>
-        </div>
-      </a>
-    </div>
+      <ConcertImage
+        thumbnail_url={thumbnail_url}
+        mouseOver={mouseOver}
+      ></ConcertImage>
+      <ConcertInfo concert={concert}></ConcertInfo>
+    </ConcertContainer>
+    // <div
+    //   className={thumbnail_url ? getStyleWithImage() : getStyleWithoutImage()}
+    //   onMouseEnter={() => setMouseOver(true)}
+    //   onMouseLeave={() => setMouseOver(false)}
+    // >
+    //   {thumbnail_url && (
+    //     <img
+    //       className={style.image}
+    //       style={{
+    //         backgroundImage: `url(${image})`,
+    //       }}
+    //     ></img>
+    //   )}
+    //   <a className={style.link} href={link_url} target="_blank" rel="noopener">
+    //     <div className={style.info}>
+    //       <div className={style.date}>
+    //         <ConcertDate date={date}></ConcertDate>
+    //       </div>
+    //       <div className={style.title}>
+    //         <h1>{title}</h1>
+    //       </div>
+    //     </div>
+    //   </a>
+    // </div>
   )
 }

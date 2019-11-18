@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import style from './concertMob.module.scss'
-import ConcertDate from './ConcertDate/ConcertDate'
+import ConcertDate from './ConcertInfo/ConcertDate/ConcertDate'
 import Search from '../search/search'
 import { func } from 'prop-types'
 

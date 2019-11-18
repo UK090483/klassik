@@ -2,7 +2,6 @@ import React, { useEffect, useState, useContext } from 'react'
 
 import style from './concerts.module.scss'
 import Concert from './concert/concert'
-import ConcertMob from './concert/concertMob'
 import { graphql, useStaticQuery } from 'gatsby'
 import Search from './search/search'
 import InfiniteScroll from 'react-infinite-scroller'
@@ -59,11 +58,7 @@ export default function Concerts() {
 
   function initialPrint() {
     return intialConcerts.map(item => {
-      return isMobile ? (
-        <ConcertMob key={item.node.id} concert={item}></ConcertMob>
-      ) : (
-        <Concert key={item.node.id} concert={item}></Concert>
-      )
+      return <Concert key={item.node.id} concert={item}></Concert>
     })
   }
 
@@ -73,11 +68,7 @@ export default function Concerts() {
 
   function renderItems() {
     return items.map(item => {
-      return isMobile ? (
-        <ConcertMob key={item.node.id} concert={item}></ConcertMob>
-      ) : (
-        <Concert key={item.node.id} concert={item}></Concert>
-      )
+      return <Concert key={item.node.id} concert={item}></Concert>
     })
   }
 

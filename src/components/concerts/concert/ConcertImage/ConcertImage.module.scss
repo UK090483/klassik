@@ -1,0 +1,32 @@
+.wrap {
+  position: absolute;
+  height: inherit;
+  width: inherit;
+  margin: inherit;
+  z-index: -1;
+}
+
+.image {
+  position: absolute;
+  height: inherit;
+  width: inherit;
+  margin: inherit;
+  object-fit: cover;
+  object-position: center;
+}
+
+.overlay {
+  position: absolute;
+  height: inherit;
+  width: inherit;
+  margin: inherit;
+  background-color: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+  transition: background-color 0.4s;
+}
+
+.mouseOver {
+  .overlay {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}

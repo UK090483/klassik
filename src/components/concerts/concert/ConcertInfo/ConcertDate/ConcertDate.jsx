@@ -1,10 +1,12 @@
 import React from 'react'
-import style from './concertDate.module.scss'
+import styles from './concertDate.module.scss'
 import moment from 'moment'
 
-export default function ConcertDate({ date }) {
+export default function ConcertDate({ date, isMobile }) {
   if (date) {
-    // let pM = moment(date).format('D MMM YY')
+    function getStyle() {
+      return isMobile ? `${styles.wrap} ${styles.mobile}` : styles.wrap
+    }
     var event = new Date(date)
 
     let pM = event.toLocaleDateString('de-DE', {
@@ -21,7 +23,7 @@ export default function ConcertDate({ date }) {
     T = 'Kl: ' + T.split(',')[1]
 
     return (
-      <div className={style.wrap}>
+      <div className={getStyle()}>
         <h1>{pM}</h1>
         <h1>{T}</h1>
       </div>

@@ -28,7 +28,9 @@ $opacity: 0.5;
 }
 
 .noimage {
-  height: 100px;
+  height: 60px;
+  min-height: 60px;
+  background-color: $white;
 }
 
 .image {
