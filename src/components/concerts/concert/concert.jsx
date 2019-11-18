@@ -37,7 +37,7 @@ export default function Concert({ concert }) {
         thumbnail_url={thumbnail_url}
         mouseOver={mouseOver}
       ></ConcertImage>
-      <ConcertInfo concert={concert}></ConcertInfo>
+      <ConcertInfo concert={concert} mouseOver={mouseOver}></ConcertInfo>
     </ConcertContainer>
     // <div
     //   className={thumbnail_url ? getStyleWithImage() : getStyleWithoutImage()}
